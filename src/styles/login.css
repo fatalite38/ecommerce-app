@@ -1,0 +1,73 @@
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 20px;
+    background-color: #0F1216;
+}
+
+
+#formLogin {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 1rem;
+    background-color: #181C23;
+    padding: 8rem;
+    border-radius: 0.4rem;
+}
+
+#formLogin label {
+    color: #fff;
+    padding-top: 0.2rem;
+}
+
+#formLogin input {
+    padding: 0.7rem;
+    width: 20rem;
+    border-radius: 0.4rem;
+    color: #000;
+    border: none;
+    
+}
+
+#formLogin .show {
+    display: flex;
+}
+
+#formLogin img {
+    margin-left: 0.5rem;
+}
+
+#formLogin img:hover {
+    cursor: pointer;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+.btn a {
+    text-decoration: none;
+}
+
+#buttonLogin {
+    display: flex;
+    margin-top: 0.4rem;
+    padding: 0.9rem 4.5rem;
+    background-color: #A6F750;
+    color: #1a2431;
+    border-radius: 1rem;
+    border: none;
+    margin-top: 2rem;
+    
+}
+
+#buttonLogin:hover {
+    background-color: #6a963b;
+    cursor: pointer;
+}

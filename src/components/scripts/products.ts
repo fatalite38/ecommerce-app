@@ -1,0 +1,1 @@
+// Lógica de controle para listagem de produtos

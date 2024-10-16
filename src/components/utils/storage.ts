@@ -1,0 +1,1 @@
+// Funções utilitárias para manipulação de sessionStorage e localStorage
