@@ -6,6 +6,7 @@ const productsListEl = document.getElementById(
 const categorySelectEl = document.getElementById(
 	"categorySelect"
 ) as HTMLSelectElement;
+const sortSelectEl = document.getElementById("sortSelect") as HTMLSelectElement;
 
 //* Product inteface
 
@@ -27,7 +28,7 @@ async function getAllProducts() {
 }
 
 const allProducts = await getAllProducts();
-// console.log(allProducts);
+let renderedProducts = allProducts;
 
 //* Get products by ID function
 
@@ -77,7 +78,7 @@ async function getAllCategories() {
 
 async function renderCategoriesFilter() {
 	const categoriesToRender = await getAllCategories();
-	let renderedCategoriesOptions = `<option selected disabled></option>`;
+	let renderedCategoriesOptions = `<option selected value="todas">todas</option>`;
 	categoriesToRender.forEach((category: string) => {
 		renderedCategoriesOptions += `<option value="${category}">${category}</option>`;
 		categorySelectEl.innerHTML = renderedCategoriesOptions;
@@ -86,12 +87,100 @@ async function renderCategoriesFilter() {
 
 renderCategoriesFilter();
 
-//* filter by catgory function
+//* Filter products by catgory function
 
-categorySelectEl.addEventListener("change", function filterByCategory() {
-	const selectedCategory = categorySelectEl.value;
-	const filteredCatecory = allProducts.filter((product: Product) => {
-		return product.category === selectedCategory;
-	});
-	renderProducts(filteredCatecory);
+categorySelectEl.addEventListener(
+	"change",
+	function filterProductsByCategory() {
+		const selectedCategory = categorySelectEl.value;
+		if (selectedCategory !== "todas") {
+			const filteredCatecory = allProducts.filter((product: Product) => {
+				return product.category === selectedCategory;
+			});
+			renderedProducts = filteredCatecory;
+			sortProducts(sortSelectEl.value);
+			renderProducts(filteredCatecory);
+		} else {
+			renderedProducts = allProducts;
+			sortProducts(sortSelectEl.value);
+			renderProducts(allProducts);
+		}
+	}
+);
+
+//* Sort products functions
+sortSelectEl.addEventListener("change", () => {
+	sortProducts(sortSelectEl.value);
 });
+
+function sortProducts(selectedSortOption: string) {
+	let orderedProducts: Product[] = [];
+	switch (selectedSortOption) {
+		case "mais baratos":
+			orderedProducts = sortProductsByPrice(renderedProducts);
+			break;
+		case "mais caros":
+			orderedProducts = sortProductsByPriceReversed(renderedProducts);
+			break;
+		case "a-z":
+			orderedProducts = sortProductsAlphabetically(renderedProducts);
+			break;
+		case "z-a":
+			orderedProducts =
+				sortProductsAlphabeticallyReversed(renderedProducts);
+			break;
+	}
+	renderProducts(orderedProducts);
+}
+
+function sortProductsAlphabetically(productsList: Product[]) {
+	const sortedProducts = productsList.sort(function (a: Product, b: Product) {
+		if (a.title < b.title) {
+			return -1;
+		}
+		if (a.title > b.title) {
+			return 1;
+		}
+		return 0;
+	});
+	return sortedProducts;
+}
+
+function sortProductsAlphabeticallyReversed(productsList: Product[]) {
+	const sortedProducts = productsList.sort(function (a: Product, b: Product) {
+		if (a.title > b.title) {
+			return -1;
+		}
+		if (a.title < b.title) {
+			return 1;
+		}
+		return 0;
+	});
+	return sortedProducts;
+}
+
+function sortProductsByPrice(productsList: Product[]) {
+	const sortedProducts = productsList.sort(function (a: Product, b: Product) {
+		if (a.price < b.price) {
+			return -1;
+		}
+		if (a.price > b.price) {
+			return 1;
+		}
+		return 0;
+	});
+	return sortedProducts;
+}
+
+function sortProductsByPriceReversed(productsList: Product[]) {
+	const sortedProducts = productsList.sort(function (a: Product, b: Product) {
+		if (a.price > b.price) {
+			return -1;
+		}
+		if (a.price < b.price) {
+			return 1;
+		}
+		return 0;
+	});
+	return sortedProducts;
+}
