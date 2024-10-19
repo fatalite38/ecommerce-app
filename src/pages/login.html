@@ -3,31 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <link rel="stylesheet" href="/ecommerce-app/src/styles/global.css">
-    <link rel="stylesheet" href="/ecommerce-app/src/styles/login.css">
     <title>Login E-commerce</title>
 </head>
 <body>
+    <nav>
+        <a href="/src/pages/login.html">[Login]</a>
+        <a href="/src/pages/cart.html">[Carrinho]</a>
+        <a href="/src/pages/productList.html">[Lista de Produtos]</a>
+    </nav>
     <header>
         <h1>Acesse sua conta</h1>
     </header>
     <main>
         <section>
-            <form id="formLogin">
+            <form id="formLogin" onsubmit="login(event)">
                 <label for="email">E-mail</label>
-                <input type="email" id="email" name="email" placeholder="Digite o seu E-mail">
+                <input type="email" id="email" name="email" placeholder="Digite o seu E-mail" required>
                 <label for="password">Senha</label>
-                <div class="show">
-                    <input type="password" id="password" placeholder="Digite a sua senha">
-                    <img src="/ecommerce-app/src/assets/icons/bx-show.svg" id="icons" alt="show" onclick="togglePasswordVisibility()">
-                </form>
-                </div>
+                <input type="password" id="password" name="password" placeholder="Digite a sua senha" required>
+                <button type="submit">Login</button>
+            </form>
         </section>
-
-       <section class="btn">
-            <a href="productList.html" target="_blank"><button id="buttonLogin">Login</button></a>
-       </section>
     </main>
+    <script src="/src/components/scripts/login.ts"></script>
 </body>
 </html>

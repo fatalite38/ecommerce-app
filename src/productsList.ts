@@ -55,6 +55,7 @@ function renderProducts(list: Product[]) {
 			/>
 			<p>${product.description}</p>
 			<p>R$ ${product.price}</p>
+			<button onclick="addToCart(${product.id})">Adicionar ao Carrinho</button>
 			<hr />`;
 	});
 	productsListEl.innerHTML = productsToShow;
@@ -184,3 +185,31 @@ function sortProductsByPriceReversed(productsList: Product[]) {
 	});
 	return sortedProducts;
 }
+
+
+
+function addToCart(productId: number) {
+    const userId = sessionStorage.getItem('userId');
+    if (!userId) {
+        alert('Por favor, faça login para adicionar produtos ao carrinho.');
+        return;
+    }
+
+    const product = allProducts.find((p: Product) => p.id === productId);
+
+    if (product) {
+        let cart = JSON.parse(localStorage.getItem(`cart_${userId}`) || '[]');
+        const existingProduct = cart.find((item: any) => item.id === product.id);
+
+        if (existingProduct) {
+            existingProduct.quantity += 1;
+        } else {
+            cart.push({ ...product, quantity: 1 });
+        }
+
+        localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
+        alert('Produto adicionado ao carrinho!');
+    }
+}
+
+(window as any).addToCart = addToCart;
