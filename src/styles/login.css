@@ -104,12 +104,12 @@ button {
     margin-top: 2rem;
     background-color: #F3F9FB;
     border: 1px solid #008ECC;
+    cursor: pointer;
 }
 
 button:hover {
     background-color: #008ECC;
     color: #F3F9FB;
-    cursor: pointer;
 }
 
 /* #formLogin img {

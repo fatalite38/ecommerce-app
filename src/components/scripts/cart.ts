@@ -29,16 +29,16 @@ function loadCart() {
                 totalAmount += itemTotal;
                 return `
                     <div class="cart-item">
-                        <img src="${item.image}" alt="${item.title}" width="50">
-                        <span>${item.title}</span>
-                        <span>Quantidade: 
-                            <button onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                        <img src="${item.image}" alt="${item.title}" width="70">
+                        <span class="title">${item.title}</span>
+                        <span class="quantity">Quantidade: 
+                            <button class="subtracao" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
                             ${item.quantity}
-                            <button onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                            <button class="adicao" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
                         </span>
                         <span>Preço: R$ ${item.price.toFixed(2)}</span>
                         <span>Total: R$ ${itemTotal.toFixed(2)}</span>
-                        <button onclick="removeItem(${item.id})">Remover</button>
+                        <button class="remove" onclick="removeItem(${item.id})">Excluir</button>
                     </div>
                 `;
             }).join('');
