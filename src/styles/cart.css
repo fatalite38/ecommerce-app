@@ -1,0 +1,144 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #F5F5F5;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header {
+    color: #666666;
+    padding: 1em 0;
+    border-bottom: 1px solid #666666;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1em;
+}
+
+nav ul li a {
+    color: #666666;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color:#008ECC;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+.cartItems {
+    width: 100%;
+}
+
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    gap: .5rem;
+    border-bottom: 1px solid #ccc;
+    width: 80%;
+    margin: 1rem 1rem 1.5rem 2.5rem;
+}
+
+.title {
+    display: flex;
+    width: 23%;
+    line-height: 25px;
+}
+
+.remove, .concluir {
+    background-color: #F3F9FB;
+    border: 1px solid red;
+    cursor: pointer;
+    font-size: 1rem;
+    padding: 5px;
+    border-radius: 10px;
+    color: red;
+}
+
+.concluir {
+    color: #1a2431;
+    border: 1px solid #008ECC;
+    padding: 10px;
+}
+
+.remove:hover {
+    background-color: red;
+    border-color: red;
+    color: #F3F9FB;
+}
+
+.concluir:hover {
+    background-color: #008ECC;
+    color: #F3F9FB;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: .3rem;
+}
+
+.subtracao, .adicao {
+    display: flex;
+    cursor: pointer;
+    padding: 5px;
+    font-size: 20px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    justify-content: center;
+}
+
+.subtracao {
+    background-color: red;
+    color: #F5F5F5;
+}
+
+.adicao {
+    background-color: green;
+    color: #F5F5F5;
+}
+
+.finalizar-compras {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* button {
+    margin-top: 0.4rem;
+    border: none;
+    margin-top: 2rem;
+}
+ */
