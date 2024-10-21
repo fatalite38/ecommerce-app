@@ -1,33 +1,90 @@
-body{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding-top: 20px;
-    background-color: #0F1216;
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    background-color: #F5F5F5;
 }
 
+.container {
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header {
+    color: #666666;
+    padding: 1em 0;
+    border-bottom: 1px solid #666666;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 1em;
+}
+
+nav ul li a {
+    color: #666666;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    color:#008ECC;
+}
+
+.titulo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 2rem 0;
+}
+
+section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    background-color: #F5F5F5;
+}
 
 #formLogin {
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 1rem;
     margin: 1rem;
-    background-color: #181C23;
-    padding: 8rem;
-    border-radius: 0.4rem;
+    background-color: #E8F1F8 ;
+    padding: 4rem;
+    border-radius: 10px;
+    width: 60%;
+    max-width: 700px;
 }
 
 #formLogin label {
-    color: #fff;
-    padding-top: 0.2rem;
+    color: #666666;
+    background-color: #E8F1F8;
+    font-size: 1.5rem;
 }
 
 #formLogin input {
-    padding: 0.7rem;
-    width: 20rem;
+    padding: 1rem;
+    width: 80%;
     border-radius: 0.4rem;
     color: #000;
+    background-color: #fafafa;
     border: none;
     
 }
@@ -36,7 +93,26 @@ body{
     display: flex;
 }
 
-#formLogin img {
+button {
+    display: flex;
+    font-size: 1.3rem;
+    margin-top: 0.4rem;
+    padding: 0.9rem 4.5rem;
+    color: #1a2431;
+    border-radius: 10px;
+    border: none;
+    margin-top: 2rem;
+    background-color: #F3F9FB;
+    border: 1px solid #008ECC;
+}
+
+button:hover {
+    background-color: #008ECC;
+    color: #F3F9FB;
+    cursor: pointer;
+}
+
+/* #formLogin img {
     margin-left: 0.5rem;
 }
 
@@ -53,21 +129,4 @@ body{
 
 .btn a {
     text-decoration: none;
-}
-
-#buttonLogin {
-    display: flex;
-    margin-top: 0.4rem;
-    padding: 0.9rem 4.5rem;
-    background-color: #A6F750;
-    color: #1a2431;
-    border-radius: 1rem;
-    border: none;
-    margin-top: 2rem;
-    
-}
-
-#buttonLogin:hover {
-    background-color: #6a963b;
-    cursor: pointer;
-}
+} */
