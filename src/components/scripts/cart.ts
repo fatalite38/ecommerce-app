@@ -77,13 +77,24 @@ function removeItem(productId: number) {
 
 function checkout() {
     const userId = sessionStorage.getItem('userId');
-    if (userId) {
-        alert('Compra finalizada com sucesso!');
-        localStorage.removeItem(`cart_${userId}`);
-        loadCart();
-    } else {
+    if (!userId) {
         alert('Erro: usuário não identificado.');
+        return;
     }
+
+    // Pegar os itens do carrinho do usuário
+    const cart: CartItem[] = JSON.parse(localStorage.getItem(`cart_${userId}`) || '[]');
+
+    // Verificar se o carrinho está vazio
+    if (cart.length === 0) {
+        alert('Seu carrinho está vazio. Adicione algum item antes de finalizar a compra.');
+        return; 
+    }
+
+    //finalizar a compra
+    alert('Compra finalizada com sucesso!');
+    localStorage.removeItem(`cart_${userId}`);
+    loadCart(); 
 }
 
 window.onload = loadCart;
