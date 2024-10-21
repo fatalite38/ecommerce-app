@@ -4,30 +4,50 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Projeto Final</title>
+		<link rel="stylesheet" href="../styles/global.css">
 	</head>
 	<body>
-		<nav>
+		<header>
+			<div class="container">
+				<h1>E-commerce</h1>
+				<!-- <div class="search-bar">
+					<input type="text" placeholder="Buscar produtos...">
+					<button>Buscar</button>
+				</div> -->
+				<nav>
+					<ul>
+						<li><a href="/src/pages/login.html"><img src="../assets/icons/bx-user.svg" alt="">Login</a></li>
+						<li><a href="/src/pages/cart.html"><img src="../assets/icons/bxs-cart.svg" alt="">Carrinho</a></li>
+						<li><a href="/src/pages/productList.html">Lista de Produtos</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+		<!-- <nav>
 			<a href="/src/pages/login.html">[Login]</a>
 			<a href="/src/pages/cart.html">[Carrinho]</a>
 			<a href="/src/pages/productList.html">[Lista de Produtos]</a>
-		</nav>
-		<h1>Listagem de produtos</h1>
-		<p>
-			Filtrar por categoria:
-			<select id="categorySelect">
-				<option selected disabled value="Mens wear">Mens wear</option>
-			</select>
-		</p>
-		<p>
-			Ordenar por:
-			<select id="sortSelect">
-				<option selected disabled value=""></option>
-				<option value="mais baratos">mais baratos</option>
-				<option value="mais caros">mais caros</option>
-				<option value="a-z">A-Z</option>
-				<option value="z-a">Z-A</option>
-			</select>
-		</p>
+		</nav> -->
+		<h2 class="titulo">Lista de Produtos</h2>
+		<div class="filter">
+			<p>
+				Filtrar por categoria:
+				<select id="categorySelect">
+					<option selected disabled value="Mens wear">Mens wear</option>
+				</select>
+			</p>
+			<p>
+				Ordenar por:
+				<select id="sortSelect">
+					<option selected disabled value=""></option>
+					<option value="mais baratos">mais baratos</option>
+					<option value="mais caros">mais caros</option>
+					<option value="a-z">A-Z</option>
+					<option value="z-a">Z-A</option>
+				</select>
+			</p>
+		</div>
+
 		<div id="productsList"></div>
 		<script type="module" src="/src/productsList.ts"></script>
 	</body>
