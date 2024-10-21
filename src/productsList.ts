@@ -55,7 +55,8 @@ function renderProducts(list: Product[]) {
 				<p class="description">${product.description}</p>
 				<span>R$ ${product.price}</span>
 				<p>
-				Avaliação: ${product.rating.rate} (${product.rating.count} avaliações)
+				Avaliação: ${product.rating.rate} 
+				(${product.rating.count} avaliações)
 				</p>
 				<button onclick="addToCart(${product.id})">Adicionar ao Carrinho</button>
 			</li>
