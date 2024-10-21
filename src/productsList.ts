@@ -8,7 +8,7 @@ const categorySelectEl = document.getElementById(
 ) as HTMLSelectElement;
 const sortSelectEl = document.getElementById("sortSelect") as HTMLSelectElement;
 
-//* Product inteface
+//* Product interface
 
 interface Product {
 	category: string;
@@ -39,25 +39,30 @@ async function getProductById(productId: number) {
 	return await products.json();
 }
 
-// const product = await getProductById(1);
-// console.log(product);
+const product = await getProductById(1);
+console.log(product);
 
 //* Render products in a list function
 
 function renderProducts(list: Product[]) {
-	let productsToShow = "";
+	let productsToShow = "<ul>"; // Iniciar a lista
+
 	list.forEach((product: Product) => {
 		productsToShow += `
-		<h2>${product.title}</h2>
-			<img
-				width="200"
-				src="${product.image}"
-			/>
-			<p>${product.description}</p>
-			<p>R$ ${product.price}</p>
-			<button onclick="addToCart(${product.id})">Adicionar ao Carrinho</button>
+			<li>
+				<h2>${product.title}</h2>
+				<img width="200" src="${product.image}" alt="${product.title}" />
+				<p class="description">${product.description}</p>
+				<span>R$ ${product.price}</span>
+				<p>
+				Avaliação: ${product.rating.rate} (${product.rating.count} avaliações)
+				</p>
+				<button onclick="addToCart(${product.id})">Adicionar ao Carrinho</button>
+			</li>
 			<hr />`;
 	});
+
+	productsToShow += "</ul>"; // Fechar a lista
 	productsListEl.innerHTML = productsToShow;
 }
 
@@ -72,9 +77,6 @@ async function getAllCategories() {
 	return await categories.json();
 }
 
-// const allCategories = await getAllCategories();
-// console.log(allCategories);
-
 //* Render categories option function
 
 async function renderCategoriesFilter() {
@@ -88,7 +90,7 @@ async function renderCategoriesFilter() {
 
 renderCategoriesFilter();
 
-//* Filter products by catgory function
+//* Filter products by category function
 
 categorySelectEl.addEventListener(
 	"change",
@@ -110,6 +112,7 @@ categorySelectEl.addEventListener(
 );
 
 //* Sort products functions
+
 sortSelectEl.addEventListener("change", () => {
 	sortProducts(sortSelectEl.value);
 });
@@ -186,30 +189,28 @@ function sortProductsByPriceReversed(productsList: Product[]) {
 	return sortedProducts;
 }
 
-
-
 function addToCart(productId: number) {
-    const userId = sessionStorage.getItem('userId');
-    if (!userId) {
-        alert('Por favor, faça login para adicionar produtos ao carrinho.');
-        return;
-    }
+	const userId = sessionStorage.getItem("userId");
+	if (!userId) {
+		alert("Por favor, faça login para adicionar produtos ao carrinho.");
+		return;
+	}
 
-    const product = allProducts.find((p: Product) => p.id === productId);
+	const product = allProducts.find((p: Product) => p.id === productId);
 
-    if (product) {
-        let cart = JSON.parse(localStorage.getItem(`cart_${userId}`) || '[]');
-        const existingProduct = cart.find((item: any) => item.id === product.id);
+	if (product) {
+		let cart = JSON.parse(localStorage.getItem(`cart_${userId}`) || "[]");
+		const existingProduct = cart.find((item: any) => item.id === product.id);
 
-        if (existingProduct) {
-            existingProduct.quantity += 1;
-        } else {
-            cart.push({ ...product, quantity: 1 });
-        }
+		if (existingProduct) {
+			existingProduct.quantity += 1;
+		} else {
+			cart.push({ ...product, quantity: 1 });
+		}
 
-        localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
-        alert('Produto adicionado ao carrinho!');
-    }
+		localStorage.setItem(`cart_${userId}`, JSON.stringify(cart));
+		alert("Produto adicionado ao carrinho!");
+	}
 }
 
 (window as any).addToCart = addToCart;
