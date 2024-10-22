@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../styles/cart.css" />
+    <title>Meu Carrinho</title>
+  </head>
+  <body>
+    <header>
+      <div class="container">
+        <h1>E-commerce</h1>
+        <nav>
+          <ul>
+            <li>
+              <a href="/src/pages/login.html"
+                ><img src="../assets/icons/bx-user.svg" alt="" />Login</a
+              >
+            </li>
+            <li>
+              <a href="/src/pages/cart.html"
+                ><img src="../assets/icons/bxs-cart.svg" alt="" />Carrinho</a
+              >
+            </li>
+            <li><a href="/src/pages/productList.html">Lista de Produtos</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+    <h1 class="titulo">Meu Carrinho</h1>
+    <div id="cartItems"></div>
+    <div class="finalizar-compras">
+        <h2>Total: R$ <span id="totalAmount">0.00</span></h2>
+        <button class="concluir" onclick="checkout()">Finalizar Compra</button>
+    </div>
+
+    <script type="module" src="/src/components/scripts/cart.ts"></script>
+  </body>
+</html>

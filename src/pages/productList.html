@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+		<link rel="stylesheet" href="../styles/global.css">
+		<link rel="stylesheet" href="../styles/productList.css">
+
+		<title>Projeto Final</title>
+
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<img id="logo" src="/src/assets/img/Fake store.png" alt="">
+				<nav>
+					<ul>
+						<li><a href="/src/pages/login.html"><img src="../assets/icons/bx-user.svg" alt="">Login</a></li>
+						<li><a href="/src/pages/cart.html"><img src="../assets/icons/bxs-cart.svg" alt="">Carrinho</a></li>
+						<li><a href="/src/pages/productList.html">Lista de Produtos</a></li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<h2 class="titulo">Lista de Produtos</h2>
+		<main class="filter">
+			<p>
+				Filtrar por categoria:
+				<select id="categorySelect">
+					<option selected disabled value="Mens wear">Mens wear</option>
+				</select>
+			</p>
+			<p>
+				Ordenar por:
+				<select id="sortSelect">
+					<option selected disabled value=""></option>
+					<option value="mais baratos">mais baratos</option>
+					<option value="mais caros">mais caros</option>
+					<option value="a-z">A-Z</option>
+					<option value="z-a">Z-A</option>
+				</select>
+			</p>	
+		</main>
+
+		<div id="productsList"></div>
+		<footer>
+			<div class="footer">
+				<div class="contact-info">
+					<h2>Contato</h2>
+					<p>E-mail: contato@fakestore.com</p>
+					<p>Telefone: (11) 1234-5678</p>
+				</div>
+				<p class="rights">© 2024 Todos os direitos reservados.</p>
+			</div>
+		</footer>
+		<script type="module" src="/src/components/scripts/productsList.ts"></script>
+	</body>
+</html>

@@ -1,0 +1,120 @@
+body {
+    overflow: hidden;
+}
+#formLogin {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin: 1rem auto;
+    background-color: #b6c0cf;
+    padding: 4rem; 
+    border-radius: 0.4rem;
+    max-width: 30rem;
+    width: 90%;
+}
+
+#formLogin label {
+    color: #fff;
+    padding-top: 0.2rem;
+    background-color: #b6c0cf;
+}
+
+#formLogin input {
+    padding: 0.7rem;
+    width: 100%; 
+    border-radius: 0.4rem;
+    color: #000;
+    border: none;
+}
+
+#formLogin .show {
+    display: flex;
+    justify-content: flex-end;
+}
+
+#formLogin img {
+    margin-left: 0.5rem;
+}
+
+#formLogin img:hover {
+    cursor: pointer;
+}
+
+.password-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    border-radius: 0.4rem;
+}
+
+.password-container input {
+    width: 100%;
+    padding-right: 30px;
+}
+
+.password-container img {
+    position: absolute;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn a {
+    text-decoration: none;
+}
+
+#buttonLogin {
+    display: flex;
+    margin-top: 0.4rem;
+    padding: 0.9rem 2rem;
+    background-color: #008ECC;
+    color: #ffffff;
+    border-radius: 1rem;
+    border: none;
+    margin-top: 2rem;
+    width: 100%;
+}
+
+
+#buttonLogin:hover {
+    background-color: #0385bd;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    #formLogin {
+        padding: 2rem; /* Menos padding em telas menores */
+        max-width: 90%; /* Para telas menores, aumentar a largura */
+    }
+
+    .footer {
+        margin-top: 5rem; /* Ajusta a margem superior da footer */
+    }
+}
+
+@media (max-width: 480px) {
+    #formLogin {
+        padding: 1rem; /* Menos padding em telas muito pequenas */
+    }
+
+    #buttonLogin {
+        padding: 0.8rem 1.5rem; /* Ajusta o padding do botão */
+    }
+
+    .footer {
+        margin-top: 4rem; /* Reduz a margem superior da footer */
+        padding: 1rem; /* Ajusta o padding do footer para telas menores */
+    }
+
+    h2 {
+        font-size: 1.2rem; /* Tamanho da fonte menor para h2 em telas pequenas */
+    }
+}
